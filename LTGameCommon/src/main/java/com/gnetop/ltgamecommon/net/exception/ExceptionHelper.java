@@ -18,7 +18,6 @@ import java.net.UnknownHostException;
  * 文件名:    ExceptionHelper
  * 创建者:    ZJB
  * 创建时间:  2017/5/19 on 20:45
- * 描述:     TODO 异常抛出帮助类
  */
 public class ExceptionHelper {
 
