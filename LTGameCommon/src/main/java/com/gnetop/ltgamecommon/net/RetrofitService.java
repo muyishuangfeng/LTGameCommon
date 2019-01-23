@@ -1,22 +1,19 @@
 package com.gnetop.ltgamecommon.net;
 
 
-import com.gnetop.ltgamecommon.model.AliPayBean;
+import com.gnetop.ltgamecommon.model.AliPlayBean;
 import com.gnetop.ltgamecommon.model.BaseEntry;
 import com.gnetop.ltgamecommon.model.ResultData;
 import com.gnetop.ltgamecommon.model.WeChatBean;
 import com.gnetop.ltgamecommon.model.WeChatModel;
 
-import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 
 import io.reactivex.Observable;
 import okhttp3.RequestBody;
 import retrofit2.http.Body;
-import retrofit2.http.Field;
 import retrofit2.http.GET;
-import retrofit2.http.HEAD;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
@@ -28,17 +25,13 @@ public interface RetrofitService {
     /**
      * 阿里
      *
-     * @param map
-     * @return
      */
     @POST("/")
-    Observable<AliPayBean> aliPlay(@QueryMap WeakHashMap<String, String> map);
+    Observable<AliPlayBean> aliPlay(@QueryMap WeakHashMap<String, String> map);
 
     /**
      * 微信
      *
-     * @param map
-     * @return
      */
     @POST("/")
     Observable<WeChatBean> weChatPlay(@QueryMap WeakHashMap<String, String> map);
@@ -46,7 +39,6 @@ public interface RetrofitService {
     /**
      * 微信登录
      *
-     * @return
      */
     @POST
     Observable<WeChatModel> getWeChatInfo(@Query("appid") String appid, @Query("secret") String secret,

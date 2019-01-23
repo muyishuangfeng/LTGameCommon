@@ -1,7 +1,7 @@
 package com.gnetop.ltgamecommon.model;
 
 
-public class WeChatPayModel  {
+public class WeChatPlayModel {
 
     private String appid;
     private String partnerid;

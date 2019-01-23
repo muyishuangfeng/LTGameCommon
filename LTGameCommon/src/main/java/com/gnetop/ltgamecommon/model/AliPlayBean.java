@@ -4,7 +4,7 @@ package com.gnetop.ltgamecommon.model;
  * Created by Silence on 2018/1/16.
  */
 
-public class AliPayBean {
+public class AliPlayBean {
     private int id;
     private String alipayKey;
     private String result;

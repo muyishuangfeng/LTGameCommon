@@ -1,6 +1,6 @@
 package com.gnetop.ltgamecommon.impl;
 
-public interface OneStorePayListener {
+public interface OneStorePlayListener {
 
     void onOneStoreSuccess();
 

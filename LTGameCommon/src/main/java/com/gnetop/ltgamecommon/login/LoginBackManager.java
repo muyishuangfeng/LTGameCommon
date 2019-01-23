@@ -7,11 +7,11 @@ import android.util.Log;
 
 import com.gnetop.ltgamecommon.R;
 import com.gnetop.ltgamecommon.impl.OnCreateOrderListener;
-import com.gnetop.ltgamecommon.impl.OnGooglePayResultListener;
+import com.gnetop.ltgamecommon.impl.OnGooglePlayResultListener;
 import com.gnetop.ltgamecommon.impl.OnLoginSuccessListener;
-import com.gnetop.ltgamecommon.impl.OnPayResultedListener;
+import com.gnetop.ltgamecommon.impl.OnPlayResultedListener;
 import com.gnetop.ltgamecommon.impl.onOneStoreUploadListener;
-import com.gnetop.ltgamecommon.model.AliPayBean;
+import com.gnetop.ltgamecommon.model.AliPlayBean;
 import com.gnetop.ltgamecommon.model.BaseEntry;
 import com.gnetop.ltgamecommon.model.ResultData;
 import com.gnetop.ltgamecommon.model.WeChatBean;
@@ -670,22 +670,22 @@ public class LoginBackManager {
      * 阿里
      *
      */
-    public static void aliPlay(String url, WeakHashMap<String, String> map, final OnPayResultedListener mListener) {
+    public static void aliPlay(String url, WeakHashMap<String, String> map, final OnPlayResultedListener mListener) {
         Api.getInstance(url)
                 .aliPlay(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<AliPayBean>() {
+                .subscribe(new Observer<AliPlayBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(AliPayBean aliPayBean) {
+                    public void onNext(AliPlayBean aliPayBean) {
                         if (aliPayBean != null) {
                             if (mListener != null) {
-                                mListener.onAliPayResult(aliPayBean);
+                                mListener.onAliPlayResult(aliPayBean);
                             }
                         }
                     }
@@ -693,14 +693,14 @@ public class LoginBackManager {
                     @Override
                     public void onError(Throwable e) {
                         if (mListener != null) {
-                            mListener.onPayError(e);
+                            mListener.onPlayError(e);
                         }
                     }
 
                     @Override
                     public void onComplete() {
                         if (mListener != null) {
-                            mListener.onPayComplete();
+                            mListener.onPlayComplete();
                         }
                     }
                 });
@@ -711,7 +711,7 @@ public class LoginBackManager {
      *
      */
     public static void weChatPlay(String url, WeakHashMap<String, String> map,
-                                 final OnPayResultedListener mListener) {
+                                 final OnPlayResultedListener mListener) {
         Api.getInstance(url)
                 .weChatPlay(map)
                 .subscribeOn(Schedulers.io())
@@ -726,7 +726,7 @@ public class LoginBackManager {
                     public void onNext(WeChatBean aliPayBean) {
                         if (aliPayBean != null) {
                             if (mListener != null) {
-                                mListener.onWeChatPayResult(aliPayBean);
+                                mListener.onWeChatPlayResult(aliPayBean);
                             }
                         }
                     }
@@ -734,14 +734,14 @@ public class LoginBackManager {
                     @Override
                     public void onError(Throwable e) {
                         if (mListener != null) {
-                            mListener.onPayError(e);
+                            mListener.onPlayError(e);
                         }
                     }
 
                     @Override
                     public void onComplete() {
                         if (mListener != null) {
-                            mListener.onPayComplete();
+                            mListener.onPlayComplete();
                         }
                     }
                 });
@@ -807,7 +807,7 @@ public class LoginBackManager {
      */
     public static void googlePlay(String baseUrl, String LTAppID, String LTAppKey,
                                  Map<String, Object> params,
-                                 final OnGooglePayResultListener mListener) {
+                                 final OnGooglePlayResultListener mListener) {
         if (params != null &&
                 !TextUtils.isEmpty(baseUrl) &&
                 !TextUtils.isEmpty(LTAppID) &&
@@ -829,7 +829,7 @@ public class LoginBackManager {
                         @Override
                         public void onNext(BaseEntry<ResultData> result) {
                             if (result != null) {
-                                mListener.onPaySuccess(result.getMsg());
+                                mListener.onPlaySuccess(result.getMsg());
                                 Log.e("GooglePayActivity", result.getMsg());
                             }
                         }
@@ -837,14 +837,14 @@ public class LoginBackManager {
                         @Override
                         public void onError(Throwable e) {
                             if (mListener != null) {
-                                mListener.onPayFailed(e);
+                                mListener.onPlayFailed(e);
                             }
                         }
 
                         @Override
                         public void onComplete() {
                             if (mListener != null) {
-                                mListener.onPayComplete();
+                                mListener.onPlayComplete();
                             }
                         }
                     });
