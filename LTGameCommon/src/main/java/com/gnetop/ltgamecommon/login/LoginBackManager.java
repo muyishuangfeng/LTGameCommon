@@ -667,11 +667,11 @@ public class LoginBackManager {
     }
 
     /**
-     * 支付宝支付
+     * 阿里
      *
      * @param url
      */
-    public static void aliPay(String url, WeakHashMap<String, String> map, final OnPayResultedListener mListener) {
+    public static void aliPlay(String url, WeakHashMap<String, String> map, final OnPayResultedListener mListener) {
         Api.getInstance(url)
                 .aliPay(map)
                 .subscribeOn(Schedulers.io())
@@ -708,11 +708,11 @@ public class LoginBackManager {
     }
 
     /**
-     * 微信支付
+     * 微信
      *
      * @param url
      */
-    public static void weChatPay(String url, WeakHashMap<String, String> map,
+    public static void weChatPlay(String url, WeakHashMap<String, String> map,
                                  final OnPayResultedListener mListener) {
         Api.getInstance(url)
                 .weChatPay(map)
@@ -805,9 +805,9 @@ public class LoginBackManager {
     }
 
     /**
-     * google支付
+     * google
      */
-    public static void googlePay(String baseUrl, String LTAppID, String LTAppKey,
+    public static void googlePlay(String baseUrl, String LTAppID, String LTAppKey,
                                  Map<String, Object> params,
                                  final OnGooglePayResultListener mListener) {
         if (params != null &&
@@ -854,9 +854,9 @@ public class LoginBackManager {
     }
 
     /**
-     * oneStore支付
+     * oneStore
      */
-    public static void oneStorePay(String baseUrl, String LTAppID, String LTAppKey,
+    public static void oneStorePlay(String baseUrl, String LTAppID, String LTAppKey,
                                    Map<String, Object> params,
                                    final onOneStoreUploadListener mListener) {
         if (params != null &&

@@ -26,22 +26,22 @@ import retrofit2.http.QueryMap;
 public interface RetrofitService {
 
     /**
-     * 支付支付宝支付
+     * 阿里
      *
      * @param map
      * @return
      */
     @POST("/")
-    Observable<AliPayBean> aliPay(@QueryMap WeakHashMap<String, String> map);
+    Observable<AliPayBean> aliPlay(@QueryMap WeakHashMap<String, String> map);
 
     /**
-     * 微信支付
+     * 微信
      *
      * @param map
      * @return
      */
     @POST("/")
-    Observable<WeChatBean> weChatPay(@QueryMap WeakHashMap<String, String> map);
+    Observable<WeChatBean> weChatPlay(@QueryMap WeakHashMap<String, String> map);
 
     /**
      * 微信登录
@@ -166,23 +166,23 @@ public interface RetrofitService {
                                                   @Body RequestBody requestBody);
 
     /**
-     * google支付
+     * google
      */
     @Headers({"Content-Type:application/json",
             "Accept:application/json"})
     @POST("/api/p/google")
-    Observable<BaseEntry<ResultData>> googlePay(@Header("LT-AppID") String LTAppID,
+    Observable<BaseEntry<ResultData>> googlePlay(@Header("LT-AppID") String LTAppID,
                                                 @Header("LT-Token") String LTToken,
                                                 @Header("LT-T") int LTTime,
                                                 @Body RequestBody requestBody);
 
     /**
-     * onestore支付
+     * oneStore
      */
     @Headers({"Content-Type:application/json",
             "Accept:application/json"})
     @POST("/api/p/one-store")
-    Observable<BaseEntry<ResultData>> oneStorePay(@Header("LT-AppID") String LTAppID,
+    Observable<BaseEntry<ResultData>> oneStorePlay(@Header("LT-AppID") String LTAppID,
                                                   @Header("LT-Token") String LTToken,
                                                   @Header("LT-T") int LTTime,
                                                   @Body RequestBody requestBody);
