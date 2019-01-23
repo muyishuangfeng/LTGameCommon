@@ -669,11 +669,10 @@ public class LoginBackManager {
     /**
      * 阿里
      *
-     * @param url
      */
     public static void aliPlay(String url, WeakHashMap<String, String> map, final OnPayResultedListener mListener) {
         Api.getInstance(url)
-                .aliPay(map)
+                .aliPlay(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<AliPayBean>() {
@@ -710,12 +709,11 @@ public class LoginBackManager {
     /**
      * 微信
      *
-     * @param url
      */
     public static void weChatPlay(String url, WeakHashMap<String, String> map,
                                  final OnPayResultedListener mListener) {
         Api.getInstance(url)
-                .weChatPay(map)
+                .weChatPlay(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<WeChatBean>() {
@@ -819,7 +817,7 @@ public class LoginBackManager {
             String json = new Gson().toJson(params);//要传递的json
             final RequestBody requestBody = RequestBody.create(okhttp3.MediaType.parse("application/json; charset=utf-8"), json);
             Api.getInstance(baseUrl)
-                    .googlePay(LTAppID, LTToken, (int) LTTime, requestBody)
+                    .googlePlay(LTAppID, LTToken, (int) LTTime, requestBody)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<BaseEntry<ResultData>>() {
@@ -869,7 +867,7 @@ public class LoginBackManager {
             final RequestBody requestBody = RequestBody.create(okhttp3.MediaType
                     .parse("application/json; charset=utf-8"), json);
             Api.getInstance(baseUrl)
-                    .oneStorePay(LTAppID, LTToken, (int) LTTime, requestBody)
+                    .oneStorePlay(LTAppID, LTToken, (int) LTTime, requestBody)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<BaseEntry<ResultData>>() {
