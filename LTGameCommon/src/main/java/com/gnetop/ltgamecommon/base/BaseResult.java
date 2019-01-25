@@ -55,4 +55,13 @@ public class BaseResult {
      * 微信传递成功
      */
     public static final int WE_CHAT_SEND_SUCCESS = BASE_RESULT + 13;
+
+    /**
+     * FaceBook登录成功
+     */
+    public static final int MSG_RESULT_FACEBOOK_SUCCESS = BASE_RESULT + 13;
+    /**
+     * Google登录成功
+     */
+    public static final int MSG_RESULT_GOOGLE_SUCCESS = BASE_RESULT + 14;
 }
